@@ -1,0 +1,21 @@
+<div class="nini">
+    <h1>Techy Quotes</h1>
+    <app-quote-form (addQuote)="addNewQuote($event)"></app-quote-form>
+    <div class="container">
+      <div class="try" *ngFor="let quote of quotes;let i = index">
+        <div class="try2">
+          <p><strong>{{quote.yourname}}</strong><br>{{quote.theQuote}} submitted on <em>{{quote.postedDate|date}}</em> </p>
+          
+  
+          <app-quote-author [quote]="quote" (isComplete)="completeQuote($event,i)"></app-quote-author>
+          <button (click)='positive(i)'>like</button>
+          <button (click)='negative(i)'>unlike</button>
+          <p><strong>upVotes:</strong>{{quote.upvotes}} <strong>downVotes:</strong> {{quote.downvotes}}</p>
+        </div>
+  
+  
+  
+      </div>
+    </div>
+  
+  </div>
